@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventário TI v2 — Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">💻</span>
+        <span class="logo-text">Inventário TI v2</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#modulos">Módulos</a></li>
+        <li><a href="#fluxo">Fluxo</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#arquitetura">Arquitetura</a></li>
+        <li><a href="#codigo">Código</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">☀️</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div id="particles"></div>
+    <div class="hero-inner">
+
+      <div class="hero-text">
+        <span id="heroBadge" class="hero-badge">v2.0 · React 18 + Firebase + Supabase</span>
+        <h1 class="hero-title">
+          Inventário de TI<br/>para redes<br/><em>de filiais</em>
+        </h1>
+        <p id="heroSub" class="hero-sub">
+          Controle completo de equipamentos, manutenções, coletores, tablets e periféricos — com prioridade automática, relatórios PDF/XLSX e dashboard analítico por filial.
+        </p>
+        <div id="heroTags" class="hero-tags">
+          <span class="tag">React 18 + Vite</span>
+          <span class="tag">Firebase Auth</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Zustand</span>
+          <span class="tag">Recharts</span>
+          <span class="tag">XLSX Export</span>
+        </div>
+        <div id="heroCtas" class="hero-ctas">
+          <a href="#codigo" class="btn-hero btn-hero-primary">Ver Código</a>
+          <a href="#arquitetura" class="btn-hero btn-hero-outline">Arquitetura</a>
+        </div>
+      </div>
+
+      <!-- MOCKUP CSS DO DASHBOARD -->
+      <div id="heroMockup" class="mockup">
+        <div class="mockup-bar">
+          <span class="mockup-dot red"></span>
+          <span class="mockup-dot yellow"></span>
+          <span class="mockup-dot green"></span>
+          <span class="mockup-title">inventario-ti-2-0.vercel.app</span>
+        </div>
+        <div class="mockup-layout">
+
+          <!-- Sidebar mini -->
+          <div class="mockup-sidebar">
+            <div class="mockup-sidebar-logo">💻 <span>Inv. TI</span></div>
+            <div class="mockup-nav-item active">📊 Dashboard</div>
+            <div class="mockup-nav-item">🖥 Equipamentos</div>
+            <div class="mockup-nav-item">🔧 Manutenções</div>
+            <div class="mockup-nav-item">📱 Coletores</div>
+            <div class="mockup-nav-item">📦 Depósito</div>
+            <div class="mockup-nav-item">📝 Checklist</div>
+          </div>
+
+          <!-- Dashboard content -->
+          <div class="mockup-content">
+            <div class="mockup-page-title">Dashboard</div>
+
+            <!-- KPI cards -->
+            <div class="mockup-kpis">
+              <div class="mockup-kpi green">
+                <span class="mockup-kpi-icon">🖥</span>
+                <div>
+                  <div class="mockup-kpi-val">148</div>
+                  <div class="mockup-kpi-label">Equipamentos</div>
+                </div>
+              </div>
+              <div class="mockup-kpi yellow">
+                <span class="mockup-kpi-icon">🔧</span>
+                <div>
+                  <div class="mockup-kpi-val">34</div>
+                  <div class="mockup-kpi-label">Manutenções</div>
+                </div>
+              </div>
+              <div class="mockup-kpi blue">
+                <span class="mockup-kpi-icon">📱</span>
+                <div>
+                  <div class="mockup-kpi-val">52</div>
+                  <div class="mockup-kpi-label">Coletores</div>
+                </div>
+              </div>
+              <div class="mockup-kpi red">
+                <span class="mockup-kpi-icon">⚠</span>
+                <div>
+                  <div class="mockup-kpi-val">11</div>
+                  <div class="mockup-kpi-label">Críticos</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini bar chart CSS -->
+            <div class="mockup-chart-title">Equipamentos por Tipo</div>
+            <div class="mockup-bars">
+              <div class="mockup-bar-wrap"><div class="mockup-bar-item" style="height:80%"></div><span>Desktop</span></div>
+              <div class="mockup-bar-wrap"><div class="mockup-bar-item" style="height:55%"></div><span>Notebook</span></div>
+              <div class="mockup-bar-wrap"><div class="mockup-bar-item" style="height:35%"></div><span>Impress.</span></div>
+              <div class="mockup-bar-wrap"><div class="mockup-bar-item active" style="height:45%"></div><span>Monitor</span></div>
+              <div class="mockup-bar-wrap"><div class="mockup-bar-item" style="height:20%"></div><span>Outros</span></div>
+            </div>
+
+            <!-- Priority list -->
+            <div class="mockup-prio-title">Prioridade de Manutenção</div>
+            <div class="mockup-prio-item">
+              <span class="mockup-prio-name">PC-Caixa-01 — Filial Centro</span>
+              <span class="mockup-prio-badge critico">Crítico</span>
+            </div>
+            <div class="mockup-prio-item">
+              <span class="mockup-prio-name">NB-Gerente-03 — Filial Sul</span>
+              <span class="mockup-prio-badge atencao">Atenção</span>
+            </div>
+            <div class="mockup-prio-item">
+              <span class="mockup-prio-name">PC-Estoque-02 — Filial Norte</span>
+              <span class="mockup-prio-badge ok">OK</span>
+            </div>
+
+            <span class="notif-dot"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="count" data-to="12">0</span>
+        <span class="stat-desc">módulos do sistema</span>
+      </div>
+      <div class="stat-item">
+        <span class="count" data-to="15">0</span>
+        <span class="stat-desc">rotas REST</span>
+      </div>
+      <div class="stat-item">
+        <span class="count" data-to="3">0</span>
+        <span class="stat-desc">níveis de prioridade</span>
+      </div>
+      <div class="stat-item">
+        <span class="count" data-to="7">0</span>
+        <span class="stat-desc">queries paralelas no dashboard</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="section-label reveal">Sobre o Projeto</div>
+      <h2 class="section-title reveal">Gestão de TI para múltiplas filiais</h2>
+      <p class="section-sub reveal">
+        Inventário TI v2.0 é uma plataforma full-stack para equipes de TI gerenciarem todo o parque tecnológico de uma rede de filiais — equipamentos, manutenções, coletores, tablets, periféricos e depósito em um único sistema.
+      </p>
+      <div class="sobre-grid">
+        <div class="sobre-card reveal-card" data-d="0">
+          <div class="sobre-icon">🔍</div>
+          <h3>Problema resolvido</h3>
+          <p>Controlar centenas de ativos de TI espalhados por dezenas de filiais, sem histórico de manutenção e sem visibilidade de quais equipamentos precisam de atenção imediata.</p>
+        </div>
+        <div class="sobre-card reveal-card" data-d="0.08">
+          <div class="sobre-icon">⚡</div>
+          <h3>Prioridade automática</h3>
+          <p>O sistema calcula automaticamente a prioridade de manutenção de cada equipamento com base na data da última intervenção — OK (&lt;4 meses), Atenção (4–5 meses), Crítico (≥6 meses ou nunca mantido).</p>
+        </div>
+        <div class="sobre-card reveal-card" data-d="0.16">
+          <div class="sobre-icon">📄</div>
+          <h3>Relatórios PDF & XLSX</h3>
+          <p>Exportação via <code>window.print()</code> (sem biblioteca extra) para PDF e via biblioteca <code>xlsx</code> para planilhas — com histórico completo de manutenções e fotos por equipamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULOS -->
+  <section id="modulos" class="section section-alt">
+    <div class="container">
+      <div class="section-label reveal">Módulos</div>
+      <h2 class="section-title reveal">12 módulos integrados</h2>
+      <div class="feat-grid">
+
+        <div class="feat-card reveal-card" data-d="0">
+          <div class="feat-icon-wrap">📊</div>
+          <h3>Dashboard</h3>
+          <p>KPIs em tempo real com 7 queries paralelas: totais, BarChart por tipo, PieChart de prioridades e lista filtrada de equipamentos e setores críticos.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.05">
+          <div class="feat-icon-wrap">🖥</div>
+          <h3>Equipamentos</h3>
+          <p>CRUD completo com tipo, usuário, filial, setor, IP e impressoras vinculadas. Cálculo automático de prioridade de manutenção por tempo decorrido.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.10">
+          <div class="feat-icon-wrap">🔧</div>
+          <h3>Manutenções</h3>
+          <p>Registro de manutenções com data de abertura e conclusão, descrição, fotos e status. Histórico completo por equipamento com exportação PDF.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.15">
+          <div class="feat-icon-wrap">📱</div>
+          <h3>Coletores</h3>
+          <p>Inventário de coletores de dados (handhelds) por filial — modelo, número de série, status e responsável. Histórico de movimentação.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.20">
+          <div class="feat-icon-wrap">💳</div>
+          <h3>Cartões & Tablets</h3>
+          <p>Gestão de cartões de acesso e tablets por filial — vinculação com colaborador, status ativo/inativo e controle de saída/devolução.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.25">
+          <div class="feat-icon-wrap">📦</div>
+          <h3>Depósito</h3>
+          <p>Controle de estoque de equipamentos e peças em depósito — entrada, saída, quantidade disponível e localização por prateleira.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.30">
+          <div class="feat-icon-wrap">🖱</div>
+          <h3>Periféricos</h3>
+          <p>Inventário de periféricos (mouses, teclados, headsets, webcams) por filial e setor — com vínculo ao equipamento principal e status.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.35">
+          <div class="feat-icon-wrap">🏢</div>
+          <h3>Filiais & Setores</h3>
+          <p>Cadastro hierárquico de filiais e setores. Prioridade de manutenção calculada por setor com base nas últimas manutenções dos equipamentos vinculados.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.40">
+          <div class="feat-icon-wrap">📝</div>
+          <h3>Notas Técnicas</h3>
+          <p>Registro de notas e observações técnicas por equipamento ou filial — com data, responsável e marcação de urgência.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.45">
+          <div class="feat-icon-wrap">✅</div>
+          <h3>Checklist de TI</h3>
+          <p>Checklists de verificação técnica com itens configuráveis, registro de problemas identificados e status por item.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.50">
+          <div class="feat-icon-wrap">📈</div>
+          <h3>Relatórios</h3>
+          <p>Exportação de relatórios completos em PDF (via <code>window.print()</code>) e planilhas XLSX (via biblioteca <code>xlsx</code>) com histórico de manutenções e fotos.</p>
+        </div>
+
+        <div class="feat-card reveal-card" data-d="0.55">
+          <div class="feat-icon-wrap">🔼</div>
+          <h3>Upload de Fotos</h3>
+          <p>Upload de fotos de manutenção (até 25 MB) armazenadas no Supabase Storage — exibidas no relatório PDF em páginas de comprovação.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FLUXO -->
+  <section id="fluxo" class="section">
+    <div class="container">
+      <div class="section-label reveal">Fluxo Operacional</div>
+      <h2 class="section-title reveal">Do cadastro ao relatório</h2>
+      <div class="flow-row">
+
+        <div class="flow-step reveal-card" data-d="0">
+          <div class="flow-num">1</div>
+          <h3>Cadastrar Ativos</h3>
+          <p>Registre filiais, setores e equipamentos. O sistema já calcula a prioridade de manutenção com base no histórico — equipamentos nunca mantidos entram como Crítico.</p>
+          <div class="flow-actors"><span class="actor">TI</span></div>
+        </div>
+
+        <div class="flow-arrow reveal">→</div>
+
+        <div class="flow-step reveal-card" data-d="0.08">
+          <div class="flow-num">2</div>
+          <h3>Registrar Manutenções</h3>
+          <p>Abra manutenções com descrição, técnico responsável, data e fotos. Ao concluir, a prioridade do equipamento é recalculada automaticamente.</p>
+          <div class="flow-actors"><span class="actor">TI</span></div>
+        </div>
+
+        <div class="flow-arrow reveal">→</div>
+
+        <div class="flow-step reveal-card" data-d="0.16">
+          <div class="flow-num">3</div>
+          <h3>Monitorar Dashboard</h3>
+          <p>Acompanhe KPIs em tempo real: total de equipamentos, manutenções, coletores e críticos. BarChart por tipo e PieChart de prioridade com filtros interativos.</p>
+          <div class="flow-actors"><span class="actor">Gestor</span></div>
+        </div>
+
+        <div class="flow-arrow reveal">→</div>
+
+        <div class="flow-step reveal-card" data-d="0.24">
+          <div class="flow-num">4</div>
+          <h3>Exportar Relatório</h3>
+          <p>Gere relatórios em PDF ou XLSX com histórico completo de manutenções, fotos de comprovação e status de prioridade por equipamento ou filial.</p>
+          <div class="flow-actors"><span class="actor">Gestor</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="section section-alt">
+    <div class="container">
+      <div class="section-label reveal">Stack Técnica</div>
+      <h2 class="section-title reveal">Tecnologias utilizadas</h2>
+      <div class="stack-grid">
+
+        <div class="stack-col reveal-left">
+          <h3 class="stack-col-title">Frontend</h3>
+          <div class="stack-rows">
+            <div class="stack-row">
+              <span class="stack-name">React 18 + Vite 5</span>
+              <span class="stack-desc">SPA com React Router v6</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Firebase 10</span>
+              <span class="stack-desc">Autenticação client-side com ID Token</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Recharts 2</span>
+              <span class="stack-desc">BarChart + PieChart com ResponsiveContainer</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Zustand</span>
+              <span class="stack-desc">Gerenciamento de estado global leve</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">xlsx</span>
+              <span class="stack-desc">Exportação de planilhas XLSX no cliente</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">react-icons + date-fns</span>
+              <span class="stack-desc">Ícones Material Design e manipulação de datas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-col gsap-row reveal">
+          <h3 class="stack-col-title">Backend</h3>
+          <div class="stack-rows">
+            <div class="stack-row">
+              <span class="stack-name">Node.js + Express</span>
+              <span class="stack-desc">API REST com 15 routers modulares</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Firebase Admin SDK</span>
+              <span class="stack-desc">Verificação de ID tokens no servidor</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Supabase JS SDK</span>
+              <span class="stack-desc">PostgreSQL + Storage via API REST</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Morgan + Helmet</span>
+              <span class="stack-desc">Logging HTTP e headers de segurança</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">express-rate-limit</span>
+              <span class="stack-desc">200 req/min por IP</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Keep-alive ping</span>
+              <span class="stack-desc">Evita hibernação no Render (14 min)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-col reveal-right">
+          <h3 class="stack-col-title">Infraestrutura</h3>
+          <div class="stack-rows">
+            <div class="stack-row">
+              <span class="stack-name">Firebase Auth</span>
+              <span class="stack-desc">Identity provider com JWT nativo</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Supabase PostgreSQL</span>
+              <span class="stack-desc">Tabelas relacionais com migrações v2–v7</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Supabase Storage</span>
+              <span class="stack-desc">Fotos de manutenção (até 25 MB)</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Vercel</span>
+              <span class="stack-desc">Deploy frontend (auto-deploy Git)</span>
+            </div>
+            <div class="stack-row">
+              <span class="stack-name">Render</span>
+              <span class="stack-desc">Deploy backend Node.js (/health v2.0.0)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUITETURA -->
+  <section id="arquitetura" class="section">
+    <div class="container">
+      <div class="section-label reveal">Arquitetura</div>
+      <h2 class="section-title reveal">Diagrama em camadas</h2>
+      <div class="arch">
+
+        <div class="arch-layer">
+          <div class="arch-layer-title">Client Layer</div>
+          <div class="arch-layer-boxes">
+            <div class="arch-box">React 18 + Vite</div>
+            <div class="arch-box">React Router v6</div>
+            <div class="arch-box">Firebase SDK</div>
+            <div class="arch-box">Recharts 2</div>
+            <div class="arch-box">Zustand</div>
+            <div class="arch-box">xlsx (export)</div>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <span class="arch-connector-label">HTTPS · Firebase ID Token (Bearer)</span>
+        </div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-title">API Layer (Express) — 15 routers</div>
+          <div class="arch-layer-boxes">
+            <div class="arch-box">authMiddleware</div>
+            <div class="arch-box">/equipamentos</div>
+            <div class="arch-box">/manutencoes</div>
+            <div class="arch-box">/coletores</div>
+            <div class="arch-box">/perifericos</div>
+            <div class="arch-box">/cartoes + /tablets</div>
+            <div class="arch-box">/filiais + /setores</div>
+            <div class="arch-box">/deposito + /notas</div>
+            <div class="arch-box">/checklist</div>
+            <div class="arch-box">/dashboard</div>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <span class="arch-connector-label">Supabase JS SDK</span>
+        </div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-title">Data Layer (Supabase)</div>
+          <div class="arch-layer-boxes">
+            <div class="arch-box">PostgreSQL — equipamentos</div>
+            <div class="arch-box">PostgreSQL — manutencoes</div>
+            <div class="arch-box">PostgreSQL — filiais/setores</div>
+            <div class="arch-box">PostgreSQL — coletores/tablets</div>
+            <div class="arch-box">Storage — fotos manutenção</div>
+            <div class="arch-box">Migrations v2–v7</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓDIGO -->
+  <section id="codigo" class="section section-alt">
+    <div class="container">
+      <div class="section-label reveal">Destaques de Código</div>
+      <h2 class="section-title reveal">Trechos reais do sistema</h2>
+      <div class="tabs-wrap reveal">
+        <div class="tabs">
+          <button class="tab active" data-tab="prioridade">Prioridade Auto.</button>
+          <button class="tab" data-tab="dashboard">Dashboard API</button>
+          <button class="tab" data-tab="relatorio">Relatório PDF</button>
+          <button class="tab" data-tab="auth">Auth Middleware</button>
+        </div>
+        <div class="tab-panels">
+
+          <div class="tab-panel active" id="panel-prioridade">
+            <pre><code class="language-javascript">// backend/src/controllers/equipamentosController.js
+// Cálculo automático de prioridade baseado na última manutenção
+// Executado para cada equipamento no dashboard e na listagem
+
+function calcularPrioridade(equip, ultimaManutencaoData) {
+  // Impressoras não entram no sistema de prioridade
+  if (equip.tipo === 'impressora') {
+    return { ...equip, prioridade: null, meses_sem_manutencao: null };
+  }
+
+  // Nunca recebeu manutenção → imediatamente Crítico
+  if (!ultimaManutencaoData) {
+    return { ...equip, prioridade: 'Crítico', meses_sem_manutencao: null };
+  }
+
+  const meses = Math.floor(
+    (Date.now() - new Date(ultimaManutencaoData).getTime())
+    / (1000 * 60 * 60 * 24 * 30)
+  );
+
+  // Regras de negócio:
+  // OK       → menos de 4 meses
+  // Atenção  → 4 ou 5 meses
+  // Crítico  → 6 meses ou mais
+  let prioridade = 'OK';
+  if      (meses >= 6) prioridade = 'Crítico';
+  else if (meses >= 4) prioridade = 'Atenção';
+
+  return { ...equip, prioridade, meses_sem_manutencao: meses, ultima_manutencao: ultimaManutencaoData };
+}</code></pre>
+          </div>
+
+          <div class="tab-panel" id="panel-dashboard">
+            <pre><code class="language-javascript">// backend/src/controllers/dashboardController.js
+// 7 queries paralelas ao Supabase via Promise.all
+
+const [
+  { count: totalEquipamentos },
+  { count: totalManutencoes },
+  { count: totalColetores },
+  { data: equipamentos },
+  { data: manutencoesPorStatus },
+  { data: ultimasManutSetores },
+  { data: setores },
+] = await Promise.all([
+  supabase.from('equipamentos').select('*', { count: 'exact', head: true }),
+  supabase.from('manutencoes').select('*', { count: 'exact', head: true }),
+  supabase.from('coletores').select('*', { count: 'exact', head: true }),
+  supabase.from('equipamentos').select('id, nome, usuario, tipo, status, filiais(nome), setores(id, nome)'),
+  supabase.from('manutencoes').select('status'),
+  supabase.from('manutencoes_setores').select('setor_id, data_manutencao').order('data_manutencao', { ascending: false }),
+  supabase.from('setores').select('id, nome, filial_id, filiais(nome)'),
+]);
+
+// Calcula prioridade para cada equipamento com mapa de última manutenção
+const manutMap = await getUltimaManutencaoMap(equipamentos.map(e => e.id));
+const equipComPrioridade = equipamentos
+  .map(e => calcularPrioridade(e, manutMap[e.id]))
+  .filter(e => e.tipo !== 'impressora');
+
+const prioridadesEquip = { OK: 0, Atenção: 0, Crítico: 0 };
+equipComPrioridade.forEach(e => { if (e.prioridade) prioridadesEquip[e.prioridade]++; });</code></pre>
+          </div>
+
+          <div class="tab-panel" id="panel-relatorio">
+            <pre><code class="language-javascript">// frontend/src/utils/pdfExport.js
+// PDF gerado via window.print() — sem dependências externas
+// O browser abre o diálogo de impressão onde o usuário salva como PDF
+
+const CSS = `
+  body  { font-family: Arial, sans-serif; font-size: 11px; color: #222; }
+  .header { background: #2a6e4a; color: #fff; padding: 10px 16px; }
+  .section-title { color: #2a6e4a; border-bottom: 1px solid #ddd; }
+  th { background: #2a6e4a; color: #fff; padding: 5px 8px; }
+  .prio-critico { color: #c03c3c; font-weight: bold; }
+  .prio-atencao { color: #b4781e; font-weight: bold; }
+  .prio-ok      { color: #2a8c50; font-weight: bold; }
+  .foto-grid img { width: 90px; height: 70px; object-fit: cover; }
+`;
+
+function abrirJanela(titulo, conteudo) {
+  const win = window.open('', '_blank', 'width=900,height=700');
+  win.document.write(
+    \`&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;title&gt;\${titulo}&lt;/title&gt;
+      &lt;style&gt;\${CSS}&lt;/style&gt;
+    &lt;/head&gt;&lt;body&gt;
+      \${conteudo}
+      &lt;div class="footer"&gt;Inventário TI — gerado em \${new Date().toLocaleString('pt-BR')}&lt;/div&gt;
+    &lt;/body&gt;&lt;/html&gt;\`
+  );
+  win.document.close();
+  win.focus();
+  setTimeout(() => { win.print(); }, 600); // aguarda render antes de imprimir
+}</code></pre>
+          </div>
+
+          <div class="tab-panel" id="panel-auth">
+            <pre><code class="language-javascript">// backend/src/middlewares/authMiddleware.js
+// Verifica o Firebase ID Token no header Authorization
+// e injeta req.user = { uid, email, name } em todos os controllers
+
+const admin = require('../config/firebase');
+
+async function authMiddleware(req, res, next) {
+  const header = req.headers.authorization;
+  if (!header?.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Token não fornecido' });
+  }
+  try {
+    const token   = header.split('Bearer ')[1];
+    const decoded = await admin.auth().verifyIdToken(token);
+    req.user = { uid: decoded.uid, email: decoded.email, name: decoded.name };
+    next();
+  } catch {
+    return res.status(401).json({ error: 'Token inválido' });
+  }
+}
+
+// server.js — keep-alive para evitar hibernação no Render (free tier)
+if (process.env.NODE_ENV === 'production' && process.env.RENDER_EXTERNAL_URL) {
+  setInterval(() => {
+    fetch(\`\${process.env.RENDER_EXTERNAL_URL}/health\`).catch(() => {});
+  }, 14 * 60 * 1000); // ping a cada 14 minutos
+}</code></pre>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">💻 Inventário TI v2</span>
+      <span class="footer-sub">Showcase estático · React 18 + Firebase + Supabase · Sem build necessário</span>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Voltar ao topo">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
