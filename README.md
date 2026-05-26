@@ -2,8 +2,8 @@
 
 # 🖥 Inventário TI v2.0 — Showcase
 
-**Site de apresentação técnica do projeto Inventário TI v2.0**  
-Página estática com animações GSAP explicando a arquitetura, stack e código de um sistema full-stack de controle de equipamentos de TI.
+**Centraliza a operação completa do time de T.I**  
+Equipamentos, manutenções, coletores, prioridade automática por tempo sem manutenção e relatórios PDF para a gestão.
 
 <br/>
 
@@ -18,6 +18,23 @@ Página estática com animações GSAP explicando a arquitetura, stack e código
 ![Responsive](https://img.shields.io/badge/responsive-yes-16a34a?flat-square)
 
 </div>
+
+---
+
+## 💼 Visão de Negócio
+
+> **Problema** — Equipe de T.I sem visibilidade sobre o patrimônio: equipamentos espalhados entre filiais, sem histórico de manutenção, sem alerta de criticidade, dependência de planilhas e controle manual de quem usou o quê.
+>
+> **Solução** — Sistema centralizado com 12 módulos cobrindo todo o ciclo: cadastro de equipamentos, registro de manutenções, gestão de coletores, vínculo com colaboradores e filiais, prioridade automática calculada pelo tempo desde a última manutenção (OK / Atenção / Crítico), histórico por equipamento e exportação em PDF.
+>
+> **Resultado** — Equipe de T.I com um único ponto de verdade sobre patrimônio e manutenções; dashboard com KPIs por filial, gráficos por tipo e lista priorizada por urgência de manutenção.
+
+| | |
+|---|---|
+| **Contexto** | Comercial Maranguape — operação interna de T.I |
+| **Usuários** | Equipe de T.I |
+| **Substitui** | Planilhas + controle manual |
+| **Status** | Em uso pela equipe |
 
 ---
 
